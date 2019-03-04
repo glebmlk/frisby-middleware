@@ -1,13 +1,13 @@
 {
-  "name": "frisby",
-  "version": "2.1.1",
+  "name": "frisby-middleware",
+  "version": "1.0.0",
   "description": "Frisby.js v2.0: REST API Endpoint Testing built on Jasmine",
   "homepage": "http://frisbyjs.com",
   "author": "Vance Lucas <vance@vancelucas.com>",
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
-    "url": "http://github.com/vlucas/frisby"
+    "url": "http://github.com/glebmlk/frisby-middleware"
   },
   "keywords": [
     "testing",
