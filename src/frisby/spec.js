@@ -19,13 +19,15 @@ class FrisbySpec {
 
     this._timeout;
     this._setupDefaults = {};
+
+    this._middleware = [];
   }
 
   /**
    * Call function to do some setup for this spec/test
    */
   use(fn) {
-    fn(this);
+    this._middleware.push(fn);
     return this;
   }
 
@@ -86,6 +88,15 @@ class FrisbySpec {
             if (text.length > 0) {
               response._json = JSON.parse(text);
             }
+          });
+      })
+      .then(() => {
+          this._middleware.forEach(fn => {
+              try {
+                  fn(this);
+              } catch (error) {
+                  console.log('Middleware error: ' + error);
+              }
           });
       })
       .then(() => {
@@ -152,6 +163,15 @@ class FrisbySpec {
               }
             }
           });
+      })
+      .then(() => {
+        this._middleware.forEach(fn => {
+          try {
+            fn(this);
+          } catch (error) {
+            console.log('Middleware error: ' + error);
+          }
+        });
       })
       .then(() => {
         return this._response;
