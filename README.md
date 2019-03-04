@@ -4,8 +4,6 @@
 [![Build
 Status](https://travis-ci.org/vlucas/frisby.png?branch=master)](https://travis-ci.org/vlucas/frisby)
 
-![Frisby.js](https://www.frisbyjs.com/assets/frisbyjs.png)
-
 ## Introduction
 
 Frisby.js an API testing tool built on top of
@@ -16,7 +14,7 @@ fast and fun.
 
 Install Frisby v2.x from NPM into your project:
 
-    npm install frisby --save-dev
+    npm install frisby-middleware --save-dev
 
 ## Creating Tests
 
@@ -25,7 +23,7 @@ Install Frisby v2.x from NPM into your project:
 The minimum setup to run a single test expectation.
 
 ```javascript
-const frisby = require('frisby');
+const frisby = require('frisby-middleware');
 
 it('should be a teapot', function () {
   // Return the Frisby.js Spec in the 'it()' (just like a promise)
@@ -39,7 +37,7 @@ it('should be a teapot', function () {
 A more complex example with nested dependent Frisby tests with Frisby's Promise-style `then` method.
 
 ```javascript
-const frisby = require('frisby');
+const frisby = require('frisby-middleware');
 const Joi = frisby.Joi; // Frisby exposes Joi for convenience
 
 describe('Posts', function () {
@@ -129,7 +127,7 @@ can be used inside the `then` method to perform additional or custom tests on
 the response data.
 
 ```javascript
-const frisby = require('frisby');
+const frisby = require('frisby-middleware');
 
 it('should be user 1', function () {
   return frisby.get('https://api.example.com/users/1')
